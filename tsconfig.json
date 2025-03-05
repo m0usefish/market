@@ -1,7 +1,26 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "target": "es6",                          // Specifies the target JavaScript version (ES6 here)
+    "module": "esnext",                       // Module system for modern JS imports (could be 'commonjs' if needed)
+    "moduleResolution": "node",               // Node-style resolution for modules
+    "strict": true,                           // Enable all strict type-checking options
+    "esModuleInterop": true,                  // Enables ES6-style module imports
+    "skipLibCheck": true,                     // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names
+    "outDir": "./dist",                       // Directory to output compiled JavaScript files
+    "rootDir": "./src",                       // Root directory of your TypeScript source files
+    "baseUrl": ".",                           // Base directory to resolve non-relative paths
+    "paths": {
+      "*": ["node_modules/*", "src/*"]        // Additional path mappings
+    },
+    "resolveJsonModule": true,                // Allow importing JSON files as modules
+    "allowSyntheticDefaultImports": true      // Allow default imports from modules with no default export
+  },
+  "include": [
+    "src/**/*"                                // Include all TypeScript files in the src directory
+  ],
+  "exclude": [
+    "node_modules",                           // Exclude node_modules folder
+    "dist"                                    // Exclude output folder (dist)
   ]
 }

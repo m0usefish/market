@@ -1,0 +1,10 @@
+.product {
+    width: calc(25% - 30px);
+    border: solid black;
+
+}
+
+.product image {
+    width: 100%;
+    object-fit: contain;
+}
