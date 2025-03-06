@@ -1,12 +1,8 @@
 <template>
    <PageContainer>
-    <div class="products"> 
-        <Product 
-        v-for="product in products"
-            :product="product" 
-            :key="product.id"/>
-
-        </div>
+    <Products
+            :products="products"
+        />
    </PageContainer>
 </template>
 
@@ -14,7 +10,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
 import useProductsStore from '../store/products';
-import Product from '../components/product.vue';
+import Products from '../components/Products.vue';
 import PageContainer from '../components/PageContainer.vue';
   
   const store = useProductsStore()

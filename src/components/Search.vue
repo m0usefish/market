@@ -12,7 +12,10 @@
         </div>
         <div class="search-results">
             <ul>
-                <li v-for="searchResult in searchResults" :key="searchResult.id">
+                <li 
+                    @click="onResultSelected(searchResult.name)" 
+                    v-for="searchResult in searchResults" 
+                    :key="searchResult.id">
                     {{ searchResult.name }}
                 </li>
             </ul>
@@ -25,6 +28,9 @@ import useProductsStore from '../store/products'
 import SearchIcon from '../assets/images/search.svg'
 import {computed, ref} from 'vue'
 import { IProduct } from 'interfaces/IProduct'
+import { useRouter } from 'vue-router/dist/vue-router'
+const router = useRouter()
+
 const inputModel = ref('')
 const productsStore = useProductsStore()
 const searchResults = computed<IProduct[]>(() => {
@@ -33,6 +39,10 @@ const searchResults = computed<IProduct[]>(() => {
     }
     return productsStore.getProductsBySearch(inputModel.value)
 })
+
+function onResultSelected(resultName: string): void {
+    router.push({ name: 'search', query: { query: resultName }})
+}
 
 </script>
 
